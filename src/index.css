@@ -1,68 +1,78 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6; */ 
+  
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 10px;
   font-weight: 400;
+  line-height: 1.7;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --text-on-light-color: #192e44;
+  --text-on-dark-color: #a7e8e0;
+  --nav-link-hover-color: #82c341;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --faint-text-color: #646E7B;
+  --button-bg-color: #82c341;
+  --button-text-color: #192e44;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  text-decoration: none;
 }
-a:hover {
-  color: #535bf2;
+
+li {
+  list-style: none;
 }
 
 body {
-  margin: 0;
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-between;
+  background-color: white;
+
+  padding: 2rem;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+header h3 {
+  font-size: 3rem;
+  background: linear-gradient(96.92deg, #192e44 1.3%, #a7e8e0 321.41%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 3rem; */
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+nav > a {
+  font-size: 2rem;
+  font-weight: 600;
+
+  padding: 0 4rem;
+  color: var(--text-on-light-color);
+  transition: all 0.3s;
+}
+
+nav > a:hover {
+  color: var(--nav-link-hover-color);
+}
+
+nav a:last-child {
+  padding-right: 0;
 }

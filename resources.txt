@@ -1,0 +1,36 @@
+background-image:  linear-gradient(96.92deg, rgb(25, 46, 68) 1.3%, rgb(167, 232, 224) 321.41%)
+color: rgb(33, 37, 41)
+
+
+.text-on-light {
+background: linear-gradient(96.92deg, #192e44 1.3%, #a7e8e0 321.41%);
+background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+}
+
+dark-text-color: #192e44
+
+.text-on-dark {
+    background: linear-gradient(154.99deg, #a7e8e0 9.21%, #68d692 111.68%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+faint-texts {
+     color: #646E7B;
+}
+
+h5 {
+     color: #192e44;
+}
+
+button-color
+color: #192e44; blueish
+min-width: 17rem;
+font-size: 1.4rem;
+font-weight: 600;
+background-color: #82c341; greenish
+padding: 1.5rem 2.4rem;
+transition: all 0.3s;
