@@ -80,36 +80,41 @@ const vehicleTypes = [
 
 // should return a list of the vehicleIds created
 async function createVehicleInformation(vehicleNum, companyId) {
+    let vehicleObjectList = []
     let vehicleIdList = []
+
     for (let i=0; i<vehicleNum; i++) {
-        try {
-            await client.connect();
-            const database  = client.db('FleetElement');
-            const vehicleCollection = database.collection('vehicles');
-            const vehicleId = uuidv4();
-
-            const newVehicle = new VehicleStaticInformation({
-                _id: vehicleId,
-                vehicleId: vehicleId,
-                name: `${generateVehicleName()} - ${vehicleTypes[Math.floor(Math.random()*vehicleTypes.length)]}`,
-                purchaseDate: Date.now,
-                vehicleDriverName: generateDriverName(),
-                owner: companyId
-            })
-
-            // insert to the vehicles collection 
-            const insertionResult = await vehicleCollection.insertOne(newVehicle)
-            console.log(insertionResult)
-            
-            vehicleIdList.push(vehicleId)
-        } catch (error) {
-            console.log("Error on inserting vehicle into collection:", error)
-        } 
-        finally {
-            await client.close();
-            console.log(`Successfully inserted ${vehicleIdList.length} vehicles`)
-        }
+        const vehicleId = uuidv4();
+        const newVehicle = new VehicleStaticInformation({
+            _id: vehicleId,
+            vehicleId: vehicleId,
+            name: `${generateVehicleName()} - ${vehicleTypes[Math.floor(Math.random()*vehicleTypes.length)]}`,
+            purchaseDate: Date.now,
+            vehicleDriverName: generateDriverName(),
+            owner: companyId
+        })
+        
+        vehicleObjectList.push(newVehicle)
+        vehicleIdList.push(vehicleId)
     }   
+
+    // Insert the vehicles generated into the database collection
+    try {
+        await client.connect();
+        const database  = client.db('FleetElement');
+        const vehicleCollection = database.collection('vehicles');
+        
+        // insert to the vehicles collection 
+        const insertionResult = await vehicleCollection.insertMany(vehicleObjectList)
+        console.log(insertionResult)
+        console.log(`Successfully inserted ${vehicleIdList.length} vehicles`)
+    } catch (error) {
+        console.log("Error on inserting vehicle into collection:", error)
+    } 
+    finally {
+        await client.close();
+    }
+
     return vehicleIdList // list of vehicles created for a company
 }
 
@@ -126,18 +131,22 @@ async function newClient() {
         vehicles: await createVehicleInformation(vehicleNum, newID)
     })
 
-    await client.connect();
-    const database  = client.db('FleetElement');
-    const companyCollection = database.collection('companies');
-
     try {
+        await client.connect();
+        const database  = client.db('FleetElement');
+        const companyCollection = database.collection('companies');
+
         const result = await companyCollection.insertOne(newCompany)
         console.log(result)
+        console.log(`Successfully added new client`)
     } catch (error) {
-        console.log("Error", error)
+        console.log("Error inserting company", error)
     } finally {
         await client.close();
     }
 }
 
-newClient()
+newClient();
+// setInterval(() => {
+//     newClient()
+// }, 10000)
