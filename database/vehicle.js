@@ -70,28 +70,27 @@ const vehicleStaticInformationSchema = mongoose.Schema({
 const VehicleStaticInformation = mongoose.model('VehicleStaticInformation', vehicleStaticInformationSchema)
 
 const vehicleDynamicInformationSchema = mongoose.Schema({
+    _id: {type: String, required: true},
     infoId: {type: String, required: true},
     mileage: {
-        type: Map,
-        of: Number,
-        required: true
+        date: {type: Date, required: true},
+        value: {type: Number, required: true}    
     },
     fuelLevel: {
-        type: Map,
-        of: Number,
-        required: true
+        date: {type: Date, required: true},
+        value: {type: Number, required: true}    
     },
     tirePressure: {
-        type: Map,
-        of: Number,
-        required: true
+        date: {type: Date, required: true},
+        value: {type: Number, required: true}        
     },
     location: {
         date: {type: Date, required: true},
         longitude: {type: String, required: true},
         latitude: {type: String, required: true}
     },
-    vehicleId: {type: String, required: true}
+    vehicleId: {type: String, required: true},
+    companyId: {type: String, required: true}
 })
 
 const VehicleDynamicInformation = mongoose.model('VehicleDynamicInformation', vehicleDynamicInformationSchema)
