@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const companySchema = mongoose.Schema({
+    _id: {
+        type: String,
+        required: true
+    },
     companyId: {
         type: String,
         required: true
@@ -29,6 +33,10 @@ const companySchema = mongoose.Schema({
 const Company = mongoose.model('Company', companySchema)
 
 const vehicleStaticInformationSchema = mongoose.Schema({
+    _id: {
+        type: String,
+        required: true
+    },
     vehicleId: {
         type: String,
         required: true
@@ -38,6 +46,10 @@ const vehicleStaticInformationSchema = mongoose.Schema({
         required: true,
         min: 6,
         max: 255
+    },
+    vehicleType: {
+        type: String,
+        required: true
     },
     purchaseDate: {
         type: Date,
@@ -84,17 +96,6 @@ const vehicleDynamicInformationSchema = mongoose.Schema({
 
 const VehicleDynamicInformation = mongoose.model('VehicleDynamicInformation', vehicleDynamicInformationSchema)
 
-// const oilChangeSchema = new mongoose.Schema({
-//     date: {
-//         type: Date,
-//         required: true
-//     },
-//     pressure: {
-//         type: Number,
-//         required: true
-//     }
-// });
-
 const maintenanceInformationSchema = mongoose.Schema({
     infoId: {type: String, required: true},
     oilChange: {
@@ -129,36 +130,8 @@ const maintenanceInformationSchema = mongoose.Schema({
     },
 })
 
-const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        min: 6,
-        max: 255
-    },
-    email: {
-        type: String,
-        required: true,
-        min: 6,
-        max: 255
-    },
-    password: {
-        type: String,
-        required: true,
-        min: 6,
-        max: 1024
-    },
-    date: {
-        type: Date,
-        default: Date.now
-    }
-});
-
-const User = mongoose.model('User', userSchema)
-
 const MaintenanceInformation = mongoose.model('MaintenanceInformation', maintenanceInformationSchema)
 module.exports = {
-    User: User,
     Company: Company,
     VehicleStaticInformation: VehicleStaticInformation,
     VehicleDynamicInformation: VehicleDynamicInformation,
