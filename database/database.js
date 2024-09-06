@@ -136,30 +136,15 @@ const maintenanceHistory = async () => {
     const projection = {companyId: 1, vehicles: 1} 
     const result = await companyCollection.find().project(projection).toArray()
 
-    const tirePressureRefill = {
-        date: new Date().toISOString(), 
-        longitude: "78.77",
-        latitude: "75.28",
-        oldValue: [pValue(30), pValue(33), pValue(31), pValue(34)], // [fr, fl, rr, rl]
-        refillValue: [newPValue(50), newPValue(50), newPValue(50), newPValue(50)], // [fr, fl, rr, rl]
-    }
-
-    const refuelHistory = {
-        date: new Date().toISOString(), 
-        longitude: "78.77",
-        latitude: "75.28",
-        oldValue: 0.25, // 0 | 0.25 | 0.5 | 1.75 | 1
-        refuelLevel: 1
-    }
-
     // using the result, simulate maintenance history a vehicle
-    const lastOilChange = {date: new Date().toISOString(), longitude: "78.77", latitude: "75.28"}
-    const nextOilChangeDate = new Date(lastOilChange.date)
-    nextOilChangeDate.setMonth(nextOilChangeDate.getMonth() + 2) // next oil change in 2 months
-    
+
     let maintenanceDataInfo = []
     result.forEach((company) => {
         company.vehicles.forEach((vehicleId) => {
+            let lastOilChange = {date: new Date().toISOString(), longitude: "78.77", latitude: "75.28"}
+            let nextOilChangeDate = new Date(lastOilChange.date)
+            nextOilChangeDate.setMonth(nextOilChangeDate.getMonth() + 2) // next oil change in 2 months
+            
             const maintenanceDataID = uuidv4()
             const maintenanceData = new MaintenanceInformation({
                 _id: maintenanceDataID,
@@ -168,8 +153,20 @@ const maintenanceHistory = async () => {
                 companyId: company.companyId,
                 lastOilChange: lastOilChange,
                 nextOilChangeDate: nextOilChangeDate,
-                tirePressureRefill: tirePressureRefill,
-                refuelHistory: refuelHistory
+                tirePressureRefill: {
+                    date: new Date().toISOString(), 
+                    longitude: "78.77",
+                    latitude: "75.28",
+                    oldValue: [pValue(30), pValue(33), pValue(31), pValue(34)], // [fr, fl, rr, rl]
+                    refillValue: [newPValue(50), newPValue(50), newPValue(50), newPValue(50)], // [fr, fl, rr, rl]                    
+                },
+                refuelHistory: {
+                    date: new Date().toISOString(), 
+                    longitude: "-79.63594368066431",
+                    latitude: "43.59740068079627",
+                    oldValue: 0.25, // 0 | 0.25 | 0.5 | 1.75 | 1
+                    refuelLevel: 1
+                }
             })
             maintenanceDataInfo.push(maintenanceData)
         })
