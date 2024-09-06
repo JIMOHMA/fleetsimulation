@@ -1,10 +1,9 @@
 require('dotenv').config()
-
 const {v4: uuidv4} = require('uuid');
 
 // utils and models
 const company = require('./company');
-const {User, Company, VehicleDynamicInformation} = require('./vehicle')
+const {Company} = require('./vehicle')
 const {VehicleStaticInformation, MaintenanceInformation} = require('./vehicle')
 const {generateRandomCompanyName, generateVehicleName, generateDriverName} = require('./namegenerator')
 
@@ -12,35 +11,6 @@ const {generateRandomCompanyName, generateVehicleName, generateDriverName} = req
 const { MongoClient, ServerApiVersion } = require("mongodb"); 
 const connectionString = process.env.connString
 const client = new MongoClient(connectionString);
-
-
-// create an entry into the dynamicData collection
-// create an entry into the maintenanceData collection
-// const maintenanceCollection = database.collection('maintenanceData');
-
-// const myCompany = new company("Ayodele", 5, "cambridge");
-// myCompany.displayCompanyInfo();
-async function emailExist() {
-    const database  = client.db('test');
-    const users = database.collection('users');
-    const query = {email: "ayodelejimoh@gmail.com"};
-    const result = await users.find(query).toArray();
-    return result;
-} 
-
-async function main() {
-    try {
-        const result = await emailExist();
-        console.log(result);
-    } catch (error) {
-        console.error('Error:', error);
-    }
-    finally {
-        await client.close();
-    }
-}
-
-// main();
 
 // uuidv4(); // ⇨ '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed'
 async function loadCompany() {
@@ -146,9 +116,18 @@ async function newClient() {
     }
 }
 
-// const generateSensoryData = (vehicleId, companyId) => {
-const generateSensoryData = async () => {
-    
+// newClient();
+
+const pValue = (bound) => {
+    return Math.floor(Math.random()*15) + bound
+}
+
+const newPValue = (bound) => {
+    return Math.floor(Math.random()*4) + bound
+}
+
+// Initialize maintenance history
+const maintenanceHistory = async () => {
     await client.connect();
     const db = client.db("FleetElement")
     const companyCollection = db.collection('companies')
@@ -156,44 +135,57 @@ const generateSensoryData = async () => {
     // const query1 = { companyId: "someString", name: "someString" };
     const projection = {companyId: 1, vehicles: 1} 
     const result = await companyCollection.find().project(projection).toArray()
-    // console.log(result)
 
-    // using the result, simulate data for the different vehicles.
-    let incomingLiveSensorData = []
+    const tirePressureRefill = {
+        date: new Date().toISOString(), 
+        longitude: "78.77",
+        latitude: "75.28",
+        oldValue: [pValue(30), pValue(33), pValue(31), pValue(34)], // [fr, fl, rr, rl]
+        refillValue: [newPValue(50), newPValue(50), newPValue(50), newPValue(50)], // [fr, fl, rr, rl]
+    }
+
+    const refuelHistory = {
+        date: new Date().toISOString(), 
+        longitude: "78.77",
+        latitude: "75.28",
+        oldValue: 0.25, // 0 | 0.25 | 0.5 | 1.75 | 1
+        refuelLevel: 1
+    }
+
+    // using the result, simulate maintenance history a vehicle
+    const lastOilChange = {date: new Date().toISOString(), longitude: "78.77", latitude: "75.28"}
+    const nextOilChangeDate = new Date(lastOilChange.date)
+    nextOilChangeDate.setMonth(nextOilChangeDate.getMonth() + 2) // next oil change in 2 months
+    
+    let maintenanceDataInfo = []
     result.forEach((company) => {
         company.vehicles.forEach((vehicleId) => {
-            const sensorDataID = uuidv4()
-            // const myDate = new Date().toISOString()
-            const sensoryData = new VehicleDynamicInformation({
-                _id: sensorDataID,
-                infoId: sensorDataID,
+            const maintenanceDataID = uuidv4()
+            const maintenanceData = new MaintenanceInformation({
+                _id: maintenanceDataID,
+                infoId: maintenanceDataID,
                 vehicleId: vehicleId,
                 companyId: company.companyId,
-                mileage: {date: new Date().toISOString(), value: 1000},
-                fuelLevel: {date: new Date().toISOString(), value: 1}, // 1: full | 3/4 | 1/2 | 1/4 | 0: empty
-                tirePressure: {date: new Date().toISOString(), value: 500},
-                location: {date: new Date().toISOString(), longitude: "78.77", latitude: "75.28"}
+                lastOilChange: lastOilChange,
+                nextOilChangeDate: nextOilChangeDate,
+                tirePressureRefill: tirePressureRefill,
+                refuelHistory: refuelHistory
             })
-            incomingLiveSensorData.push(sensoryData)
+            maintenanceDataInfo.push(maintenanceData)
         })
     })
 
     // insert all the sensory data into the database
     try {
-        const sensorCollection = db.collection('sensorDataInfo');
-        const insertionResult = await sensorCollection.insertMany(incomingLiveSensorData)
+        const maintenanceCollection = db.collection('maintenanceData');
+        const insertionResult = await maintenanceCollection.insertMany(maintenanceDataInfo)
         console.log(insertionResult)
-        console.log("Insertion of data from sensors successful")
+        console.log("Insertion of data from maintenance successful")
     } catch (error) {
-        console.log("Sensory data insertion error is:", error)
+        console.log("Maintenance data insertion error is:", error)
     } finally {
         await client.close()
     }
 }
 
-// newClient();
-
-// generate sensor data for all the vehicles every 10seconds
-setInterval(() => {
-    generateSensoryData()
-}, 10000)
+maintenanceHistory()
