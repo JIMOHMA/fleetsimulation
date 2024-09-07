@@ -22,12 +22,17 @@ function Home() {
 
   return (
     <div className='hero-section'>
-      <h1 className='hero-header'>Welcome to Fleet Simulation</h1>
+      <h6>Welcome to</h6>
+      <h1 className='hero-header'>Fleet Simulation</h1>
       <p className="hero-description">
         Access real-time analytics, 
         and explore how your fleet of vehicles can be better managed.
       </p>
       <a className="hero-button" href="/acquisitions">New Acquisition</a>
+
+      <figure className='hero-bg'>
+        <img src="/images/fleetVehicles.jfif" alt="Fleet of vehicles as background" />
+      </figure>
     </div>
   )
 }
