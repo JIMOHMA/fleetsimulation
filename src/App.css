@@ -117,3 +117,86 @@ footer #contact-us:hover {
   border-radius: 50px;
   transition: all 0.15s ease-in;
 }
+
+.tires {
+  display: grid;
+  grid-template-columns: repeat(2, 10rem);
+  grid-template-rows: repeat(3, 4rem);
+  /* background-color: green; */
+  column-gap: 1rem;
+}
+
+.leftfront {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.leftrear {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+.rightfront {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.rightrear {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.leftfront,
+.leftrear,
+.rightfront,
+.rightrear {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  color: #a7e8e0;
+}
+
+.tires .tire {
+  /* width: 2.5rem; */
+  width: 4rem;
+  height: 4rem;
+  margin-left: 1rem;
+  border-radius: 50%;
+  background-color: #ff8800;
+  border: 6px solid black;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.line1 {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.line2 {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  transform: rotate(90deg);
+}
+
+.line3 {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  transform: rotate(-45deg);
+}
+
+.line4 {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+}
