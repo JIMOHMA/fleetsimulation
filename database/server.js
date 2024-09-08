@@ -25,18 +25,19 @@ app.get('/', (req, res) => {
     res.send("ALL GOOD.")
 })
 
+let listOfCompanies = 
 io.on('connection', (clientSocket) => {
-    clientSocket.on('new-message', async ({message, date}) => {
-        console.log(`${date}: ${message}, socket ID: ${clientSocket.id}`)
+    clientSocket.on('all-companies', async ({message}) => {
+        console.log(`${message}, socket ID: ${clientSocket.id}`)
 
         await client.connect();
         const db = client.db('FleetElement')
         const companyCollection = db.collection('companies')
-        const projection = {companyId: 1, vehicles: 1} 
+        const projection = {name: 1, companyId: 1, vehicles: 1} 
         const result = await companyCollection.find().project(projection).toArray()
         
         // sending data back to the Front-End through the db_query socket channel
-        clientSocket.emit('db_query', {info: result})
+        clientSocket.emit('company_list', {data: result})
     })
 
 })

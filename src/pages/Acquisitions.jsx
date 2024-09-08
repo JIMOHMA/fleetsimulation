@@ -1,33 +1,35 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 
 import io from 'socket.io-client';
 const socket = io.connect("http://localhost:3001")
 
 function Acquisitions() {
 
-  const [count, setCount] = useState(0)
-
-  function emitMessage() {
-    socket.emit("new-message", {message: "Ayodele is nice", date: new Date().toISOString()})
-  }
-
+  const [companies, setCompanies] = useState([])
+  
   useEffect(() => {
-    socket.on("db_query", ({info}) => {
-      console.log(info);
+    socket.emit("all-companies", {message: "Request for all companies in db"})
+    socket.on("company_list", ({data}) => {
+      console.log(data);
+      setCompanies([...data])
     })
   }, [socket])
+
   return (
-    <div>
-      <h3>Acquisitions Link</h3>
-      <nav>
-        <ul>
-          <li><a href="/home">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/acquisitions">Acquisitions</a></li>
-        </ul>
-      </nav>
-      <button onClick={emitMessage}>Send Message</button>
-    </div>
+    <section className='companies-container'>
+      {companies.map((company) => (
+        <div key={company.companyId} className="company-container">
+          <h2 className='company-name'>{company.name}</h2>
+          <div className="p-container">
+            <p className="vehicle-num">{company.vehicles?.length || 0} <span>Vehicle{(company.vehicles.length > 1) ? "s" : ""}</span></p>
+            <p className='in-fleet'>In Fleet</p>
+          </div>
+
+          <Link className="view-company" to={'/home'}>View More</Link>
+        </div>
+      ))}      
+    </section>
   )
 }
 

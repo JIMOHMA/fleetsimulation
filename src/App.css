@@ -338,9 +338,91 @@ select {
   align-self: start;
 }
 
+.companies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 35rem);
+  /* grid-template-rows: repeat(3, auto); */
+
+  gap: 3rem;
+  justify-content: center;
+
+  padding: 2rem;
+}
+
+/* Acquisitions */
+.company-container {
+  display: grid;
+  grid-template-columns: repeat(3, 10rem);
+  grid-template-rows: repeat(3, auto);
+  gap: 0.5rem;
+
+  background-image:  linear-gradient(96.92deg, rgb(25, 46, 68) 1.3%, rgb(167, 232, 224) 321.41%);
+  color: var(--text-on-dark-color);
+  
+  padding: 1rem 2rem;
+  border: 1px solid;
+  border-radius: 15px;
+}
+
+.company-container .company-name {
+  font-size: 3rem;
+  grid-column: 1 / span 3;
+  grid-row: 1 / 3;
+}
+
+.company-container .p-container {
+  font-size: 2rem;
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+
+  align-self: end;
+}
+
+.p-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+}
+
+.p-container .vehicle-num {
+  align-self: end;
+  font-size: 2rem;
+}
+
+.p-container span {
+  font-size: 1rem;
+}
+
+.p-container .in-fleet {
+  align-self: start;
+  font-size: 1.6rem;
+}
 
 
+.company-container .view-company {
+  font-size: 1.5rem;
+  font-weight: bold;
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
 
+  align-self: center;
+  justify-self: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: #82c341; 
+  color: #192e44;
+
+  transition: all 0.2s ease-in;
+}
+
+.company-container .view-company:hover {
+  background-color: #192e44;
+  color: var(--text-on-dark-color);
+  border: 1px solid var(--text-on-dark-color);
+}
+
+/* Acquisitions */
 .tires {
   display: grid;
   grid-template-columns: repeat(2, 10rem);
