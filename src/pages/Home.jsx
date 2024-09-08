@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-// import Header from '../components/Header'
-// import Footer from '../components/Footer'
+import { Link } from 'react-router-dom'
 
 import io from 'socket.io-client';
 const socket = io.connect("http://localhost:5173")
@@ -28,7 +27,8 @@ function Home() {
         Access real-time analytics, 
         and explore how your fleet of vehicles can be better managed.
       </p>
-      <a className="hero-button" href="/acquisitions">New Acquisition</a>
+      {/* <a className="hero-button" href="/new">New Acquisition</a> */}
+      <Link className='hero-button' to={'/new'}>New Acquisition</Link>
 
       <figure className='hero-bg'>
         <img src="/images/fleetVehicles.jfif" alt="Fleet of vehicles as background" />

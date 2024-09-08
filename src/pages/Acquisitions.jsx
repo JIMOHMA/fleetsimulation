@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-// import Header from '../components/Header'
-// import Footer from '../components/Footer'
 
 import io from 'socket.io-client';
 const socket = io.connect("http://localhost:3001")

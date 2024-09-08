@@ -2,11 +2,10 @@ require('dotenv').config()
 const {v4: uuidv4} = require('uuid');
 
 // model
-const {VehicleDynamicInformation} = require('./vehicle')
+const {VehicleDynamicInformation} = require('./schemas')
 
 // Connect to database
 const { MongoClient, ServerApiVersion } = require("mongodb"); 
-const vehicle = require('./vehicle');
 const connectionString = process.env.connString
 const client = new MongoClient(connectionString);
 

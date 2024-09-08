@@ -3,8 +3,8 @@ const {v4: uuidv4} = require('uuid');
 
 // utils and models
 const company = require('./company');
-const {Company} = require('./vehicle')
-const {VehicleStaticInformation, MaintenanceInformation} = require('./vehicle')
+const {Company} = require('./schemas')
+const {VehicleStaticInformation, MaintenanceInformation} = require('./schemas')
 const {generateRandomCompanyName, generateVehicleName, generateDriverName} = require('./namegenerator')
 
 // Connect to database

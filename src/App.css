@@ -43,6 +43,10 @@ a {
   color: var(--text-on-dark-color);
 }
 
+button {
+  cursor: pointer;
+}
+
 li {
   list-style: none;
 }
@@ -152,7 +156,7 @@ nav a:last-child {
 .hero-button:hover {
   background-color: #192e44;
   color: var(--text-on-dark-color);
-  border: 1px solid var(--button-text-color);
+  border: 1px solid var(--text-on-dark-color);
   border-radius: 25px;
 }
 
@@ -169,6 +173,173 @@ nav a:last-child {
 
   border-radius: 25px;
 }
+
+.acquisition-container {
+  height: 80vh;
+  /* width: 100%; */
+
+  display: grid;
+  grid-template-columns: repeat(6, 15rem);
+  grid-template-areas: 
+  ".      .       .         .              .           ."
+  ".      .       .         .              .           ."
+  ".      heading       heading   heading        heading           ."
+  "name   name    .      auto-generate    auto-generate auto-generate"
+  "num    num     .       auto-generate    auto-generate auto-generate"
+  "b-save b-save  b-save    auto-generate    auto-generate auto-generate"
+  ".      .       .         .              .           ."
+  ".      .       .         .              .           .";
+
+  /* background-color: yellow; */
+  justify-content: center;
+  gap: 1rem;
+}
+
+.h2-heading {
+  grid-area: heading;
+  text-align: center;
+
+  font-size: 4rem;
+}
+
+.name-fieldset {
+  grid-area: name;
+}
+
+.num-fieldset {
+  grid-area: num;
+}
+
+.save-button {
+  grid-area: b-save;
+  justify-self: start;
+  align-self: flex-start;
+
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1.5rem 4rem;
+  border: 1px solid transparent;
+  background-color: #82c341;
+  color: #192e44;
+
+  transition: all 0.15s ease-in;
+}
+
+.save-button:hover {
+  border: 1px solid #82c341;
+  border-radius: 25px;
+}
+
+.generate {
+  grid-area: auto-generate;
+
+  background-color: rgba(240, 237, 237, 0.534);
+  background-color: #ffff;
+  color: var(--text-on-light-color);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, auto);
+  justify-content: center;
+
+  border-radius: 25px;
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(167, 232, 224, 0.4);
+  -moz-box-shadow: 0px 0px 10px 2px rgba(167, 232, 224, 0.4);
+  box-shadow: 0px 0px 10px 2px rgba(167, 232, 224, 0.4);
+
+  position: relative;
+  z-index: 999;
+}
+
+.bg-replace {
+  position: absolute;
+
+  background-color: rgba(240, 237, 237, 0.685);
+  height: 80%;
+  width: 80%;
+
+  z-index: -1;
+
+  margin: 4.7rem;
+  border-radius: inherit;
+}
+
+.generate input {
+  width: 2rem;
+  height: 2rem;
+
+  align-self: center;
+  justify-self: center;
+  font-size: rem;
+
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+
+  /* accent-color: green; */
+}
+
+.generate input[type="checkbox"]:checked {
+  transform: scale(1);
+  background-color: green;
+}
+
+.generate label {
+  justify-self: center;
+
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.generate button {
+  grid-column: 1 / 2;
+  grid-row: 6 / 7;
+
+  justify-self: center;
+  align-self: start;
+  padding: 1.5rem 2.5rem;
+
+  font-size: 1.6rem;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  background-color: #82c341;
+  color: #192e44;
+
+  transition: all 0.2s ease-in;
+}
+
+.generate button:hover {
+  background-color: #192e44;
+  color: var(--text-on-dark-color);
+  border: 1px solid var(--text-on-dark-color);
+}
+
+.name-fieldset,
+.num-fieldset {
+  display: grid;
+  grid-template-rows: auto auto;
+
+  border: none;
+  font-size: 2rem;
+}
+
+input[type="text"],
+select {
+  border: none;
+  outline: none;
+  /* background: none; */
+
+  font-size: 2.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+
+  align-self: start;
+}
+
+
+
 
 .tires {
   display: grid;
@@ -362,4 +533,10 @@ footer #contact-us {
 footer #contact-us:hover {
   border-radius: 50px;
   transition: all 0.15s ease-in;
+}
+
+@media only screen and (max-width: 100rem) {
+  .hero-section {
+    grid-template-columns: repeat(2, 45rem);
+  }
 }
