@@ -502,8 +502,11 @@ select {
 }
 
 .driver-info .d-name {
-  font-size: 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
   text-align: center;
+
+  letter-spacing: 0.05rem;
 }
 
 .purchase-date {
@@ -548,6 +551,70 @@ select {
 /* Company Vehicles */
 
 /* Vehicle Analytics */
+.full-analytics {
+  display: grid;
+  grid-template-columns: repeat(3, 50rem);
+  grid-template-rows: repeat(2, 35rem);
+
+  gap: 1rem;
+  
+  padding: 4rem;
+}
+
+.speed-analytics {
+  width: 100%;
+  height: 100%;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  
+
+  padding: 1rem 2rem;
+
+  background-color: #192e44;
+  border-radius: 15px;
+
+}
+
+.speed-analytics .chart-area {
+  grid-column: 1 / -1;
+  grid-row: 3 / 4;
+}
+
+.shadow-effect {
+  -webkit-box-shadow: 4px 5px 11px -8px rgb(167, 232, 224);
+  -moz-box-shadow: 4px 5px 11px -8px rgb(167, 232, 224);
+  box-shadow: 4px 5px 11px -8px rgb(167, 232, 224);
+}
+
+.speed-analytics h1 {
+  font-size: 1.7rem;
+  color: #ecececbe;
+
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.speed-analytics .time-frame{
+  font-size: 1rem;
+  color: #e2e2e277;
+
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.speed-analytics .update-time {
+  font-size: 1rem;
+  color: #e2e2e277;
+
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  justify-self: end;
+}
 
 /* Vehicle Analytics */
 
@@ -733,6 +800,7 @@ footer .linkedIn i {
 
 footer #contact-us {
   color: #192e44;
+  background-color: #e2e2e29d;
   background-color: #82c341;
   padding: 1.8rem 3.6rem;
   font-weight: 600;

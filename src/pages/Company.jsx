@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
 import io from 'socket.io-client';
 const socket = io.connect("http://localhost:3001")
@@ -38,12 +38,12 @@ const Company = () => {
               <p className='v-type'>{vehicle.vehicleType}</p>
               <div className="driver-info">
                 <i className="fa-solid fa-person"></i>
-                <p className="d-name">{vehicle.vehicleDriverName}</p>
+                <p className="d-name">Driver: {vehicle.vehicleDriverName}</p>
               </div>
 
               <p className='purchase-date'>Purchased: {dateInStringform(vehicle.purchaseDate)}</p>
 
-              <Link className="view-analytics" to={`/vehicle/${vehicle.vehicleId}`}>View Analytics</Link>
+              <Link className="view-analytics" to={`/vehicle/${vehicle.vehicleId}`}>Real-time Analytics</Link>
             </div>
           ))}      
         </section>

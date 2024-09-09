@@ -56,6 +56,37 @@ io.on('connection', (clientSocket) => {
         clientSocket.emit('vehicle_list', {data: [{vehicles: result, owner: vehicleOwner}]})
     })
 
+    clientSocket.on("speed_information", async ({vehicleId}) => {
+        
+        await client.connect();
+        const db = client.db('FleetElement')
+        const sensorCollection = db.collection('sensorDataInfo')
+        const projection = {infoID: 1, vehicleId: 1, date: 1, speed: 1} 
+        // limiting the query to 10 data points which will be equivalent to 5 mins timeframe 
+        // given that we add data to the database every 30seconds
+        let speedResult = await sensorCollection.find({vehicleId: vehicleId}).project(projection).sort("date", -1).limit(10).toArray()
+
+        // parse and format the data before sending it to the frontEnd
+        let parsedData = speedResult.reverse().map((item) => ({
+            speed: item.speed, 
+            date: `${new Date(item.date).getHours()}:${new Date(item.date).getMinutes()}:${new Date(item.date).getSeconds()}`
+        }))
+        console.log(parsedData)
+        clientSocket.emit('speed_data', {vehicleData: parsedData})
+
+        // wait 30 seconds before loading the next feed of data
+        setInterval(async() => {
+            speedResult = await sensorCollection.find({vehicleId: vehicleId}).project(projection).sort("date", -1).limit(10).toArray()
+            parsedData = speedResult.reverse().map((item) => ({
+                speed: item.speed, 
+                date: `${new Date(item.date).getHours()}:${new Date(item.date).getMinutes()}:${new Date(item.date).getSeconds()}`
+            }))
+            console.log(parsedData)
+            clientSocket.emit('speed_data', {vehicleData: parsedData})
+        }, 30000)
+
+    })
+
 })
 
 const port = 3001

@@ -7,7 +7,6 @@ import About from "./pages/About";
 import NewAcquisition from "./pages/NewAcquisition";
 import Company from "./pages/Company";
 import Vehicle from "./pages/Vehicle";
-import Vehicles from "./pages/Vehicles";
 import Acquisitions from "./pages/Acquisitions";
 import NoPage from "./pages/NoPage";
 
@@ -23,7 +22,6 @@ function App() {
           <Route path="acquisitions" element={<Acquisitions />} />
           <Route path="new" element={<NewAcquisition />} />
           <Route path="about" element={<About />} />
-          <Route path="vehicles" element={<Vehicles />} />
           <Route path="/vehicle/:vehicleId" element={<Vehicle />} />
           <Route path="/company/:companyId" element={<Company />} />
           <Route path="*" element={<NoPage />} />
