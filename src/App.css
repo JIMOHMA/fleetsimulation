@@ -435,8 +435,7 @@ select {
   color: var(--text-on-dark-color);
   border: 1px solid var(--text-on-dark-color);
 }
-
-
+/* Acquisitions */
 
 /* Company Vehicles */
 .vehicles-container {
@@ -591,7 +590,7 @@ select {
   box-shadow: 4px 5px 11px -8px rgb(167, 232, 224);
 }
 
-.speed-analytics h1 {
+.speed-analytics h2 {
   font-size: 1.7rem;
   color: #ecececbe;
 
@@ -631,6 +630,8 @@ select {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, auto);
+
+  row-gap: 1rem;
 }
 
 .fuel-analytics h2 {
@@ -670,15 +671,49 @@ select {
   font-weight: bold;
 }
 
+
+.pressure-analytics {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+
+  justify-self: center;
+  align-self: center;
+
+  display: grid;
+  grid-template-columns: repeat(4, 12rem);
+  grid-template-rows: repeat(6, minmax(auto, 5rem));
+  row-gap: 1rem;
+  column-gap: 0.33rem;
+
+
+  background-color: #192e44;
+  border-radius: 15px;
+
+}
+
+.pressure-analytics h2 {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+
+  justify-self: center;
+  align-self: center;
+
+  font-size: 1.7rem;
+  color: #ecececbe;
+}
 /* Vehicle Analytics */
 
-/* Acquisitions */
-.tires {
+
+.pressure-analytics .tires {
+  grid-column: 2 / 4;
+  grid-row: 2 / 7;
+
   display: grid;
-  grid-template-columns: repeat(2, 10rem);
-  grid-template-rows: repeat(3, 4rem);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   /* background-color: green; */
-  column-gap: 1rem;
+  /* column-gap: 3rem; */
+
 }
 
 .leftfront {
@@ -706,10 +741,10 @@ select {
 .rightfront,
 .rightrear {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   font-size: 2rem;
-  color: #a7e8e0;
+  color: #192e44;
 }
 
 .tires .tire {
@@ -717,12 +752,24 @@ select {
   width: 4rem;
   height: 4rem;
   margin-left: 1rem;
+  margin-right: 1rem;
   border-radius: 50%;
   background-color: #ff8800;
   border: 6px solid black;
   position: relative;
   display: flex;
   align-items: center;
+}
+
+.tires p {
+  border-radius: 10px;
+  padding: 0.25rem 0.5rem;
+  
+  color: #192e44;
+  background-color: #a7e8e0;
+
+  font-size: 1.7rem;
+  font-weight: bold;
 }
 
 .line1 {
