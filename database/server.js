@@ -130,6 +130,21 @@ io.on('connection', (clientSocket) => {
         }, 30000)
     })
 
+    clientSocket.on('driver_info', async ({vehicleId}) => {
+
+        await client.connect();
+        const db = client.db('FleetElement')
+        const vehicleCollection = db.collection('vehicles')
+        const query = { vehicleId: vehicleId};
+        const projection = {name: 1, vehicleType: 1, vehicleDriverName: 1, purchaseDate: 1} 
+
+        // get the most recent fuel level value 
+        const result = await vehicleCollection.findOne(query, {projection: projection});
+        console.log("Driver result are", result)
+        clientSocket.emit('driver_data', {driverData: result})
+    })
+
+
 })
 
 const port = 3001

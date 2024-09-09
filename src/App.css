@@ -31,6 +31,7 @@
   /* margin: 0 auto; */
   /* padding: 2rem; */
   /* text-align: center; */
+  padding-top: 2rem;
 }
 
 body {
@@ -549,13 +550,57 @@ select {
 }
 /* Company Vehicles */
 
+
+
 /* Vehicle Analytics */
+.more-vehicle {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.identification-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+
+  padding: 0 4rem;
+  align-items: end;
+
+}
+
+.identification-info h2 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+
+  justify-self: center;
+  color: #ecececbe;
+}
+
+.identification-info h3:nth-of-type(1) {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+
+  justify-self: start;
+  color: #e2e2e277;
+}
+
+.identification-info h3:nth-of-type(2) {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+
+  justify-self: end;
+  color: #e2e2e277;
+}
+
 .full-analytics {
   display: grid;
   grid-template-columns: repeat(3, 50rem);
   grid-template-rows: repeat(2, 35rem);
 
   gap: 2rem;
+  justify-content: center;
+  align-content: center;
   
   padding: 4rem;
 }
@@ -701,8 +746,6 @@ select {
   font-size: 1.7rem;
   color: #ecececbe;
 }
-/* Vehicle Analytics */
-
 
 .pressure-analytics .tires {
   grid-column: 2 / 4;
@@ -803,7 +846,59 @@ select {
   position: absolute;
 }
 
+.driver-vehicle-details {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
 
+  display: grid;
+  grid-template-columns: repeat(5, 10rem);
+  grid-template-rows: repeat(2, 16rem);
+  row-gap: 3rem;
+
+  justify-items: center;
+  align-items: start;
+
+  background-color: #192e44;
+  border-radius: 15px;
+
+}
+
+.driver-vehicle-details h2 {
+  font-size: 1.7rem;
+  color: #ecececbe;
+}
+
+.driver-vehicle-details p {
+  font-size: 1.3rem;
+  color: #e2e2e277;
+}
+
+.driver-vehicle-details .driver-details {
+  height: 100%;
+
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.driver-vehicle-details .vehicle-details {
+  height: 100%;
+
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  align-items: center;
+}
+
+/* Vehicle Analytics */
 
 footer {
   font-family: Arial, Helvetica, sans-serif;
