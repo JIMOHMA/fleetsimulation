@@ -144,6 +144,26 @@ io.on('connection', (clientSocket) => {
         clientSocket.emit('driver_data', {driverData: result})
     })
 
+    clientSocket.on('description', async ({vehicleId}) => {
+        
+        await client.connect();
+        const db = client.db('FleetElement')
+        const vehicleCollection = db.collection('vehicles')
+        const companyCollection = db.collection('companies')
+        const query1 = { vehicleId: vehicleId};
+        const projection1 = {name: 1, owner: 1} 
+
+        const vehicleResult = await vehicleCollection.findOne(query1, {projection: projection1});
+        console.log("Description vehicle result are", vehicleResult)
+
+
+        const query2 = {companyId: vehicleResult.owner}
+        const projection2 = {name: 1}
+        const companyResult = await companyCollection.findOne(query2, {projection: projection2})
+        console.log("Description company result are", companyResult)
+        
+        clientSocket.emit('description_data', [{vehicle: vehicleResult}, {company: companyResult}])
+    })
 
 })
 
