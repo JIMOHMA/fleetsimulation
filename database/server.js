@@ -87,6 +87,28 @@ io.on('connection', (clientSocket) => {
 
     })
 
+    clientSocket.on('fuel_information', async ({vehicleId}) => {
+        console.log("vehicleId received is", vehicleId)
+
+        await client.connect();
+        const db = client.db('FleetElement')
+        const sensorCollection = db.collection('sensorDataInfo')
+        const projection = {infoID: 1, vehicleId: 1, date: 1, fuelLevel: 1} 
+
+        // get the most recent fuel level value 
+        let fuelResult = await sensorCollection.find({vehicleId: vehicleId}).project(projection).sort("date", -1).limit(1).toArray()
+        
+        console.log("fuel result is", fuelResult)
+        clientSocket.emit('fuel_data', {fuelData: fuelResult})
+
+        // update fuel level every 30 seconds
+        setInterval(async() => {
+            let fuelResult = await sensorCollection.find({vehicleId: vehicleId}).project(projection).sort("date", -1).limit(1).toArray()
+
+            clientSocket.emit('fuel_data', {fuelData: fuelResult})
+        }, 30000)
+    })
+
 })
 
 const port = 3001

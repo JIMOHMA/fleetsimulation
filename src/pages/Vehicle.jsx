@@ -1,10 +1,7 @@
 import React from 'react'
-import { useEffect, useState  } from 'react';
-import SpeedAreaChart from '../components/SpeedAreaChart'
-import { useParams, Link } from 'react-router-dom'
-
-import io from 'socket.io-client';
-const socket = io.connect("http://localhost:3001")
+import SpeedAreaChart from '../components/SpeedAreaChart';
+import FuelGuage from '../components/FuelGuage';
+import { useParams } from 'react-router-dom';
 
 function Vehicle() {
 
@@ -13,6 +10,9 @@ function Vehicle() {
   return (
     <div className='full-analytics'>
       <SpeedAreaChart 
+        vehicleId = { vehicleId } 
+      />
+      <FuelGuage 
         vehicleId = { vehicleId } 
       />
     </div>
