@@ -9,7 +9,7 @@ const cors = require('cors')
 // database connection
 const { MongoClient } = require("mongodb");
 const connectionString = process.env.connString
-const client = new MongoClient(connectionString);
+const client = new MongoClient(connectionString)
 
 app.use(cors());
 
@@ -25,7 +25,6 @@ app.get('/', (req, res) => {
     res.send("ALL GOOD.")
 })
 
-let listOfCompanies = 
 io.on('connection', (clientSocket) => {
     clientSocket.on('all-companies', async ({message}) => {
         console.log(`${message}, socket ID: ${clientSocket.id}`)
@@ -38,6 +37,23 @@ io.on('connection', (clientSocket) => {
         
         // sending data back to the Front-End through the db_query socket channel
         clientSocket.emit('company_list', {data: result})
+    })
+
+    clientSocket.on("company-data", async({companyId}) => {
+        console.log(companyId)
+
+        await client.connect();
+        const db = client.db('FleetElement')
+        const vehicleCollection = db.collection('vehicles')
+        const companyCollection = db.collection('companies')
+        const projection = {name: 1, vehicleId: 1, vehicleType: 1, vehicleDriverName: 1, purchaseDate: 1} 
+        const result = await vehicleCollection.find({owner: companyId}).project(projection).toArray()
+
+        const query = {companyId: companyId}
+        const projection2 = {name: 1}
+        const vehicleOwner = await companyCollection.findOne(query, {projection: projection2})
+
+        clientSocket.emit('vehicle_list', {data: [{vehicles: result, owner: vehicleOwner}]})
     })
 
 })

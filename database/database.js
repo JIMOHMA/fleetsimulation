@@ -127,7 +127,7 @@ async function createVehicleInformation(vehicleNum, companyId) {
             _id: vehicleId,
             vehicleId: vehicleId,
             name: generateVehicleName(),
-            vehicleType: vehicleTypes[Math.floor(Math.random()*vehicleTypes.length + 1)],            
+            vehicleType: vehicleTypes[Math.floor(Math.random()*vehicleTypes.length)],            
             purchaseDate: Date.now,
             vehicleDriverName: generateDriverName(),
             owner: companyId
