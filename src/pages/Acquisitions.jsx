@@ -5,7 +5,8 @@ import RingLoader from "react-spinners/ClipLoader";
 import Header from '../components/Header';
 
 import io from 'socket.io-client';
-const socket = io.connect("http://localhost:3001")
+// const socket = io.connect("http://localhost:3001")
+const socket = io.connect("https://fleetdemo.onrender.com")
 
 
 const override = {

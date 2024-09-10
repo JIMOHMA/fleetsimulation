@@ -3,7 +3,8 @@ import { useEffect, useState  } from 'react';
 
 import io from 'socket.io-client';
 import Vehicle from '../pages/Vehicle';
-const socket = io.connect("http://localhost:3001")
+// const socket = io.connect("http://localhost:3001")
+const socket = io.connect("https://fleetsimulation.onrender.com")
 
 
 // TODO: Tires pressures are all the same for all 4 tires

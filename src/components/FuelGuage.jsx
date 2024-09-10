@@ -4,7 +4,8 @@ import GaugeChart from 'react-gauge-chart';
 
 
 import io from 'socket.io-client';
-const socket = io.connect("http://localhost:3001")
+// const socket = io.connect("http://localhost:3001")
+const socket = io.connect("https://fleetsimulation.onrender.com")
 
 function FuelGuage(props) {
 

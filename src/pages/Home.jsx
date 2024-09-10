@@ -1,30 +1,28 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import Header from '../components/Header';
 
-import io from 'socket.io-client';
-import Footer from '../components/Footer';
-const socket = io.connect("http://localhost:5173")
+// import io from 'socket.io-client';
+// const socket = io.connect("http://localhost:5173")
 
 
 function Home() {
 
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
-  function emitMessage() {
-    socket.emit("new-message", {message: "Ayodele is nice"})
-  }
+  // function emitMessage() {
+  //   socket.emit("new-message", {message: "Ayodele is nice"})
+  // }
 
-  useEffect(() => {
-    socket.on("db_query", ({info}) => {
-      console.log(info);
-    })
-  }, [socket])
+  // useEffect(() => {
+  //   socket.on("db_query", ({info}) => {
+  //     console.log(info);
+  //   })
+  // }, [socket])
 
   return (
     <>
       <Header />
-    
       <div className='hero-section'>
         <h6>Welcome to</h6>
         <h1 className='hero-header'>Fleet Simulation</h1>
@@ -39,7 +37,6 @@ function Home() {
           <img src="/images/fleetVehicles.jfif" alt="Fleet of vehicles as background" />
         </figure>
       </div>
-      {/* <Footer /> */}
     </>
   )
 }

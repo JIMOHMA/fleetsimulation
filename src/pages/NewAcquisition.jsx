@@ -8,10 +8,13 @@ const NewAcquisition = () => {
   const [vehicleNums, setVehicleNums] = useState('')
   const [isChecked, setIsChecked] = useState(false)
 
+  const BACKEND_URL = "https://fleetdemo.onrender.com"
+
   const autoGenerateCompany = async () => {
     
     try {
-      const response = await fetch('http://localhost:3001/autogenerate', {
+      // const response = await fetch('http://localhost:3001/autogenerate', {
+      const response = await fetch("https://fleetdemo.onrender.com/autogenerate", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
