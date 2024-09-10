@@ -18,7 +18,7 @@ const client = new MongoClient(connectionString);
 //         3. Initialize vehicles historical data
 //         4. Implicit operation: simulataion.js automatically would query this new
 //         acquisition and simulate the sensory data accordingly
-async function newAcquisition() {
+async function autoAcquisition() {
 
     const companyId = uuidv4();
     // a new company has between 1 and 7
@@ -28,7 +28,7 @@ async function newAcquisition() {
         companyId: companyId,
         name: generateRandomCompanyName(),
         numberOfVehicles: vehicleNum,
-        location: "Mississauga Ontario, Canada",
+        location: "Mississauga Ontario, Canada", // default location
         vehicles: await createVehicleInformation(vehicleNum, companyId)
     })
 
@@ -39,11 +39,39 @@ async function newAcquisition() {
 
         const result = await companyCollection.insertOne(newCompany)
         console.log(result)
-        console.log(`Successfully added new client`)
     } catch (error) {
         console.log("Error inserting company", error)
     } finally {
         await client.close();
+        console.log(`Successfully added new client`)
+    }
+
+    initializeFleetHistory(companyId)
+}
+
+async function newAcquisitionByUser(companyName, numOfVehicle) {
+    const companyId = uuidv4();
+    const newCompany = new Company({
+        _id: companyId,
+        companyId: companyId,
+        name: companyName,
+        numberOfVehicles: numOfVehicle,
+        location: "Mississauga Ontario, Canada", // default 
+        vehicles: await createVehicleInformation(numOfVehicle, companyId)
+    })
+
+    try {
+        await client.connect();
+        const database  = client.db('FleetElement');
+        const companyCollection = database.collection('companies');
+
+        const result = await companyCollection.insertOne(newCompany)
+        console.log(result)
+    } catch (error) {
+        console.log("Error inserting company", error)
+    } finally {
+        await client.close();
+        console.log(`Successfully added new client`)
     }
 
     initializeFleetHistory(companyId)
@@ -225,6 +253,12 @@ const maintenanceHistory = async () => {
 }
 
 // add a new company
-newAcquisition()
+// newAcquisition()
 
 
+module.exports = {
+    autoAcquisition,
+    newAcquisitionByUser,
+    initializeFleetHistory,
+    createVehicleInformation
+};
