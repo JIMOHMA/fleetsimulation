@@ -4,7 +4,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 import io from 'socket.io-client';
 // const socket = io.connect("http://localhost:3001")
-const socket = io.connect("https://fleetsimulation.onrender.com")
+const socket = io.connect("https://fleetdemo.onrender.com")
 
 const SpeedAreaChart = (props) => {
     const [ speedData, setSpeedData ] = useState([])

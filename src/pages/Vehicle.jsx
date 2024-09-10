@@ -12,7 +12,7 @@ import Header from '../components/Header';
 
 import io from 'socket.io-client';
 // const socket = io.connect("http://localhost:3001") // update to CORS_ORIGIN=https://fleetsimulation.onrender.com
-const socket = io.connect("https://fleetsimulation.onrender.com") // update to CORS_ORIGIN=https://fleetsimulation.onrender.com
+const socket = io.connect("https://fleetdemo.onrender.com") // update to CORS_ORIGIN=https://fleetsimulation.onrender.com
 
 function Vehicle() {
 
