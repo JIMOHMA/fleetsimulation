@@ -2,6 +2,7 @@ import { useEffect, useState  } from 'react';
 import { Link } from 'react-router-dom'
 // import PulseLoader from "react-spinners/ClipLoader";
 import RingLoader from "react-spinners/ClipLoader";
+import Header from '../components/Header';
 
 import io from 'socket.io-client';
 const socket = io.connect("http://localhost:3001")
@@ -36,6 +37,7 @@ function Acquisitions() {
 
   return (
     <>
+      <Header></Header>
       <h2 className='page-heading'>Acquired Companies</h2>
       {loadState ? (
         <div className='load-spinner'>

@@ -8,9 +8,10 @@ import FuelGuage from '../components/FuelGuage';
 import TirePressure from '../components/TirePressure';
 import Driver from '../components/Driver';
 import Maintenance from '../components/Maintenance';
+import Header from '../components/Header';
 
 import io from 'socket.io-client';
-const socket = io.connect("http://localhost:3001")
+const socket = io.connect("http://localhost:3001") // update to CORS_ORIGIN=https://fleetsimulation.onrender.com
 
 function Vehicle() {
 
@@ -30,30 +31,33 @@ function Vehicle() {
   }, [socket])
 
   return (
-    <section className='more-vehicle'>
-      <div className="identification-info">
-        <h2>{cName}</h2>
-        <h3>Vehicle Name: {vName}</h3>
-        <h3>Real-time Analytics</h3>
-      </div>
-      <div className='full-analytics'>
-        <SpeedAreaChart 
-          vehicleId = { vehicleId } 
-        />
-        <FuelGuage 
-          vehicleId = { vehicleId } 
-        />
-        <TirePressure 
-          vehicleId = { vehicleId } 
-        />
-        <Maintenance 
-          vehicleId = { vehicleId }
-        />
-        <Driver 
-          vehicleId = { vehicleId } 
-        />
-      </div>
-    </section>
+    <>
+      <Header></Header>
+      <section className='more-vehicle'>
+        <div className="identification-info">
+          <h2>{cName}</h2>
+          <h3>Vehicle Name: {vName}</h3>
+          <h3>Real-time Analytics</h3>
+        </div>
+        <div className='full-analytics'>
+          <SpeedAreaChart 
+            vehicleId = { vehicleId } 
+          />
+          <FuelGuage 
+            vehicleId = { vehicleId } 
+          />
+          <TirePressure 
+            vehicleId = { vehicleId } 
+          />
+          <Maintenance 
+            vehicleId = { vehicleId }
+          />
+          <Driver 
+            vehicleId = { vehicleId } 
+          />
+        </div>
+      </section>
+    </>
   )
 }
 

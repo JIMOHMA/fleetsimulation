@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import io from 'socket.io-client';
+import Header from '../components/Header';
 const socket = io.connect("http://localhost:3001")
 
 const Company = () => {
@@ -30,6 +31,7 @@ const Company = () => {
   }
   return (
     <>
+      <Header></Header>
       <h2 className='page-heading'>{companyName ? companyName : ''}</h2>
       <section className='vehicles-container'>
           {companyVehicles.map((vehicle) => (

@@ -8,6 +8,6 @@ export default function NoPage() {
         alignItems: 'center'
     }
     return (
-    <div style={styles}>NoPage</div>
+    <div style={styles}>No Page</div>
   )
 }
