@@ -352,7 +352,7 @@ select {
 .bg-replace {
   position: absolute;
 
-  background-color: #e2e2e2e5;
+  background-color: #ffffffe5;
   height: calc(100% - 6rem);
   width: calc(100% - 6rem);
 
