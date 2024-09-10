@@ -15,6 +15,7 @@
     "react-dom": "^18.3.1",
     "react-gauge-chart": "^0.5.1",
     "react-router-dom": "^6.26.1",
+    "react-router-hash-link": "^2.4.3",
     "react-spinners": "^0.14.1",
     "recharts": "^2.12.7",
     "socket.io-client": "^4.7.5"
