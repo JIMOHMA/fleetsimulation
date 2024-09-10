@@ -561,11 +561,12 @@ select {
 
 .identification-info {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 50rem);
   grid-template-rows: 1fr;
 
-  padding: 0 4rem;
-  align-items: end;
+  /* padding: 0 4rem; */
+  /* align-items: end; */
+  place-content: center;
 
 }
 
@@ -574,6 +575,7 @@ select {
   grid-row: 1 / 2;
 
   justify-self: center;
+  align-self: end;
   color: #ecececbe;
 
   font-size: 4rem;
@@ -584,6 +586,7 @@ select {
   grid-row: 1 / 2;
 
   justify-self: start;
+  align-self: end;
   color: #e2e2e277;
 }
 
@@ -592,6 +595,7 @@ select {
   grid-row: 1 / 2;
 
   justify-self: end;
+  align-self: end;
   color: #e2e2e277;
 }
 
