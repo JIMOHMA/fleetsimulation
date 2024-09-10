@@ -31,7 +31,7 @@
   /* margin: 0 auto; */
   /* padding: 2rem; */
   /* text-align: center; */
-  padding-top: 2rem;
+  padding-top: 4rem;
 }
 
 body {
@@ -68,7 +68,7 @@ header {
   padding: 2rem;
 }
 
-header h3 {
+header h3 a {
   font-size: 3rem;
   background: linear-gradient(96.92deg, #192e44 1.3%, #a7e8e0 321.41%);
   background-clip: text;
@@ -177,46 +177,87 @@ nav a:last-child {
   border-radius: 25px;
 }
 
+/* New Acquisition cut here */
 .acquisition-container {
-  height: 80vh;
-  /* width: 100%; */
-
   display: grid;
-  grid-template-columns: repeat(6, 15rem);
-  grid-template-areas: 
-  ".      .       .         .              .           ."
-  ".      .       .         .              .           ."
-  ".      heading       heading   heading        heading           ."
-  "name   name    .      auto-generate    auto-generate auto-generate"
-  "num    num     .       auto-generate    auto-generate auto-generate"
-  "b-save b-save  b-save    auto-generate    auto-generate auto-generate"
-  ".      .       .         .              .           ."
-  ".      .       .         .              .           .";
+  grid-template-columns: repeat(6, 18rem);
+  grid-template-rows: repeat(10, 5rem);
 
-  /* background-color: yellow; */
-  justify-content: center;
-  gap: 1rem;
+  place-content: center;
+  column-gap: 3rem;
 }
 
 .h2-heading {
-  grid-area: heading;
-  text-align: center;
+  grid-column: 1 / -1;
+  grid-row: 2 / 4;
 
-  font-size: 4rem;
+  place-self: center;
+  font-size: 5rem;
+  
 }
 
-.name-fieldset {
-  grid-area: name;
+form {
+  grid-column: 2 / 4;
+  grid-row: 4 / 10;
+
+  display: grid;
+  grid-template-columns: repeat(2, 18.5rem);
+  grid-template-rows: repeat(6, 5rem);
 }
 
-.num-fieldset {
-  grid-area: num;
+
+form .name-fieldset {
+  /* display: grid; */
+  /* grid-template-columns: repeat(2, 18rem);
+  grid-auto-rows: repeat(); */
+  
+  border: none;
+  font-size: 2rem;
+
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+
+  display: grid;
+  gap: 0.5remrem;
+}
+
+form .num-fieldset {
+  border: none;
+  font-size: 2rem;
+
+  grid-column: 1 / 3;
+  grid-row: 3 / 5;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row: repeat(2, auto);
+  gap: 0.5rem
+}
+
+.num-fieldset label,
+.name-fieldset label {
+  font-size: 2rem;
+  align-self: end;
+}
+
+input[type="text"],
+select {
+  border: none;
+  outline: none;
+  /* background: none; */
+
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+
+  align-self: end;
 }
 
 .save-button {
-  grid-area: b-save;
-  justify-self: start;
-  align-self: flex-start;
+  grid-column: 1 / 3;
+  grid-row: 5 / 7;
+
+  place-self: center;
 
   font-size: 2rem;
   font-weight: bold;
@@ -234,51 +275,39 @@ nav a:last-child {
 }
 
 .generate {
-  grid-area: auto-generate;
+  position: relative;
 
-  background-color: rgba(240, 237, 237, 0.534);
-  background-color: #ffff;
-  color: var(--text-on-light-color);
+  grid-column: 4 / 6;
+  grid-row: 4 / 10;
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(10, auto);
-  justify-content: center;
+  grid-template-rows: repeat(5, 5rem);
+
+  place-content: center;
+
+  color: var(--text-on-light-color);
+  /* background-color: #ffff; */
+  background-color: #192e44;
 
   border-radius: 25px;
-  -webkit-box-shadow: 0px 0px 10px 2px rgba(167, 232, 224, 0.4);
-  -moz-box-shadow: 0px 0px 10px 2px rgba(167, 232, 224, 0.4);
-  box-shadow: 0px 0px 10px 2px rgba(167, 232, 224, 0.4);
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(167, 232, 224, 0.3);
+  -moz-box-shadow: 0px 0px 10px 2px rgba(167, 232, 224, 0.3);
+  box-shadow: 0px 0px 10px 2px rgba(167, 232, 224, 0.3);
 
   position: relative;
   z-index: 999;
-}
-
-.bg-replace {
-  position: absolute;
-
-  background-color: rgba(240, 237, 237, 0.685);
-  height: 80%;
-  width: 80%;
-
-  z-index: -1;
-
-  margin: 4.7rem;
-  border-radius: inherit;
 }
 
 .generate input {
   width: 2rem;
   height: 2rem;
 
-  align-self: center;
   justify-self: center;
-  font-size: rem;
+  align-self: end;
 
-  grid-column: 1 / 2;
-  grid-row: 3 / 4;
-
-  /* accent-color: green; */
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
 }
 
 .generate input[type="checkbox"]:checked {
@@ -286,18 +315,19 @@ nav a:last-child {
   background-color: green;
 }
 
-.generate label {
-  justify-self: center;
 
-  grid-column: 1 / 2;
-  grid-row: 4 / 5;
+.generate label {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+
+  place-self: center;
   font-size: 1.6rem;
   font-weight: bold;
 }
 
 .generate button {
   grid-column: 1 / 2;
-  grid-row: 6 / 7;
+  grid-row: 4 / 5;
 
   justify-self: center;
   align-self: start;
@@ -319,27 +349,22 @@ nav a:last-child {
   border: 1px solid var(--text-on-dark-color);
 }
 
-.name-fieldset,
-.num-fieldset {
-  display: grid;
-  grid-template-rows: auto auto;
+.bg-replace {
+  position: absolute;
 
-  border: none;
-  font-size: 2rem;
+  background-color: #e2e2e2e5;
+  height: calc(100% - 6rem);
+  width: calc(100% - 6rem);
+
+  top: 3rem;
+  left: 3rem;
+  border-radius: inherit;
+  
+  z-index: -1;
 }
+/* New Acquisition cut here */
 
-input[type="text"],
-select {
-  border: none;
-  outline: none;
-  /* background: none; */
-
-  font-size: 2.5rem;
-  padding: 1.5rem 2rem;
-  border-radius: 1rem;
-
-  align-self: start;
-}
+/* New Acquisition */
 
 .page-heading {
   text-align: center;
@@ -942,6 +967,8 @@ footer {
   justify-content: center;
   margin: 10rem 20%;
   gap: 4rem;
+
+  background-color: #fff;
 
 }
 
