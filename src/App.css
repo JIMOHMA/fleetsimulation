@@ -41,9 +41,9 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-html, body {
+/* html, body {
   overflow-x: hidden;
-}
+} */
 
 a {
   text-decoration: none;
