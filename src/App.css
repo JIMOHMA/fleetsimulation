@@ -603,6 +603,7 @@ select {
 
   justify-self: center;
   align-self: end;
+  text-align: center;
   color: #ecececbe;
 
   font-size: 4rem;
