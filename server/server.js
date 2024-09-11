@@ -1,11 +1,20 @@
 require('dotenv').config()
 const { autoAcquisition, newAcquisitionByUser } = require('./database');
 
+const path = require('path');
 const express = require('express')
 const app = express();
 const http = require('http')
 const {Server} = require('socket.io')
 const cors = require('cors')
+
+// Serve static files from the 'build' folder
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Always return index.html for unknown routes (SPA fallback)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 // database connection
 const { MongoClient } = require("mongodb");
