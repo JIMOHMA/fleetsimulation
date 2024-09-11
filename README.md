@@ -1,6 +1,17 @@
 # Element Fleet Simulation
 This goal of this web application was to simulate my understanding of what a real-time analytics for a fleet of vehicles would entail. More features can and will be added in the coming future.
 
+### Tech Stack (MERN)
+<p align="center">
+<b>MongoDB, Expressjs, React, Nodejs</b>
+</p>
+
+![MERN Tech Stack](screenshots/MERN.png "MERN Tech Stack")
+
+<br/>
+<br/>
+<br/>
+
 #### Screenshots of Web Application
 - Home Page
 ![Home Page](screenshots/home.PNG "Fleet Manager Home Page")
