@@ -141,7 +141,7 @@ nav a:last-child {
 
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1.5rem;
 }
 
 .hero-content h6 {
@@ -167,6 +167,14 @@ nav a:last-child {
   color: var(--button-text-color);
 
   align-self: start;
+  transition: all 0.25s ease-in;
+}
+
+.hero-button:hover {
+  background-color: #192e44;
+  color: var(--text-on-dark-color);
+  border: 1px solid var(--text-on-dark-color);
+  border-radius: 25px;
 }
 
 /* New Acquisition cut here */
@@ -964,7 +972,7 @@ footer {
   gap: 4rem;
 
   background-color: #fff;
-
+  /* flex-wrap: wrap; */
 }
 
 footer .main-info {
@@ -1007,7 +1015,7 @@ footer ul li a:hover {
 }
 
 footer hr {
-  opacity: 20%;
+  opacity: 50%;
 }
 
 footer .socials {
@@ -1054,7 +1062,7 @@ footer #contact-us {
   color: #192e44;
   background-color: #e2e2e29d;
   background-color: #82c341;
-  padding: 1.8rem 3.6rem;
+  padding: 1.5rem 3rem;
   font-weight: 600;
   border-radius: 5px;
   margin-top: 2rem;
@@ -1066,8 +1074,35 @@ footer #contact-us:hover {
   transition: all 0.15s ease-in;
 }
 
-@media only screen and (max-width: 100rem) {
+/* @media only screen and (max-width: 100rem) {
   .hero-section {
     grid-template-columns: repeat(2, 45rem);
   }
+} */
+
+@media only screen and (max-width: 800px) {
+  footer .main-info {
+    /* display: ; */
+    flex-direction: column;
+    flex-grow: 0.8;
+    font-size: 2rem;
+  }
+
+  footer .socials {
+    flex-grow: 1;
+    font-size: 2rem;
+  }
 }
+
+@media only screen and (max-width: 1200px) {
+  footer {
+    flex-wrap: wrap;
+  }
+
+  footer .socials {
+    flex-basis: 70%;
+    font-size: 2rem;
+  }
+  
+}
+
