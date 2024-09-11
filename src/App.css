@@ -635,7 +635,7 @@ select {
 .full-analytics {
   display: grid;
   grid-template-columns: repeat(3, 35rem);
-  grid-template-rows: repeat(2, 35rem);
+  grid-template-rows: repeat(2, 35rem); 
   /* grid-template-rows: repeat(2, min-content); */
 
   gap: 2rem;
