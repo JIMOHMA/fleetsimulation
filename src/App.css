@@ -582,11 +582,13 @@ select {
   display: flex;
   flex-direction: column;
 
+  align-items: center;
 }
 
 .identification-info {
   display: grid;
-  grid-template-columns: repeat(3, 50rem);
+  /* grid-template-columns: repeat(3, 50rem); */
+  grid-template-columns: repeat(3, 35rem);
   grid-template-rows: 1fr;
 
   /* padding: 0 4rem; */
@@ -626,7 +628,7 @@ select {
 
 .full-analytics {
   display: grid;
-  grid-template-columns: repeat(3, 50rem);
+  grid-template-columns: repeat(3, 35rem);
   grid-template-rows: repeat(2, 35rem);
 
   gap: 2rem;
@@ -695,7 +697,7 @@ select {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
 
-  padding: 1rem 2rem;
+  /* padding: 1rem 2rem; */
   justify-self: stretch;
   /* align-self: ; */
   /* place-self: center; */
@@ -704,7 +706,7 @@ select {
   border-radius: 15px;
 
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 17.5rem);
   grid-template-rows: repeat(3, auto);
 
   row-gap: 1rem;
@@ -756,10 +758,10 @@ select {
   align-self: center;
 
   display: grid;
-  grid-template-columns: repeat(4, 12rem);
+  grid-template-columns: repeat(4, 8.75rem);
   grid-template-rows: repeat(6, minmax(auto, 5rem));
   row-gap: 1rem;
-  column-gap: 0.33rem;
+  /* column-gap: 0.33rem; */
 
 
   background-color: #192e44;
@@ -779,14 +781,14 @@ select {
 }
 
 .pressure-analytics .tires {
+  justify-self: center;
+
   grid-column: 2 / 4;
   grid-row: 2 / 7;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  /* background-color: green; */
-  /* column-gap: 3rem; */
 
 }
 
@@ -882,7 +884,7 @@ select {
   grid-row: 2 / 3;
 
   display: grid;
-  grid-template-columns: repeat(5, 10rem);
+  grid-template-columns: repeat(5, 7rem);
   grid-template-rows: repeat(2, 16rem);
   row-gap: 3rem;
 
