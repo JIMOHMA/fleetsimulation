@@ -1,22 +1,22 @@
 # Element Fleet Simulation
 This goal of this web application was to simulate my understanding of what a real-time analytics for a fleet of vehicles would entail. More features can and will be added in the coming future.
 
-#### Screenshots
+#### Screenshots of Web Application
 - Home Page
 ![Home Page](screenshots/home.png "Fleet Manager Home Page")
 - New Acquisition Page
 ![New](screenshots/newacquisition.png "New Acquisition Page")
 - Companies Acquried
-![Companies](screenshots/acquired.png "Companies Acquried Page")
+![Companies](screenshots/acquired.png "Companies Acquired Page")
 - Company Vehicles 
 ![Vehicles](screenshots/company-vehicles.png "Company Vehicles Page")
 - Vehicle Analytics 
-![Analytics](Screenshots/analytics.png "Vehicle Analytics Page")
+![Analytics](screenshots/analytics.png "Vehicle Analytics Page")
 - About Page
-![About](Screenshots/about.png "About Page")
+![About](screenshots/about.png "About Page")
 
 #### Application File Structure
-![File Structure](Screenshots/filestructure.png "About Page")
+![File Structure](screenshots/filestructure.png "About Page")
 
 #### How To Run The Application Locally
 Three terminals are needed to run the following respectively
