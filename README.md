@@ -13,21 +13,40 @@ This goal of this web application was to simulate my understanding of what a rea
 <br/>
 
 #### Screenshots of Web Application
-- Home Page
+- **<u>Home Page</u>**
 ![Home Page](screenshots/home.PNG "Fleet Manager Home Page")
-- New Acquisition Page
+<!-- <br/> -->
+<hr/>
+
+- **<u>New Acquisition Page</u>**
 ![New](screenshots/newacquisition.PNG "New Acquisition Page")
-- Companies Acquried
+<!-- <br/> -->
+<hr/>
+
+- **<u>Companies Acquried</u>**
 ![Companies](screenshots/acquired.PNG "Companies Acquired Page")
-- Company Vehicles 
+<!-- <br/> -->
+<hr/>
+
+- **<u>Company Vehicles </u>**
 ![Vehicles](screenshots/company-vehicles.PNG "Company Vehicles Page")
-- Vehicle Analytics 
+<!-- <br/> -->
+<hr/>
+
+- **<u>Vehicle Analytics </u>**
 ![Analytics](screenshots/analytics.PNG "Vehicle Analytics Page")
-- About Page
+<!-- <br/> -->
+<hr/>
+
+- **<u>About Page</u>**
 ![About](screenshots/about.PNG "About Page")
+<!-- <br/> -->
+<hr/>
 
 #### Application File Structure
 ![File Structure](screenshots/filestructure.PNG "About Page")
+<!-- <br/> -->
+<hr/>
 
 #### How To Run The Application Locally
 Three terminals are needed to run the following respectively
@@ -45,7 +64,7 @@ Three terminals are needed to run the following respectively
         npm install
         npm run dev
     ```
-- **React Front-End**: The package.json in the root directory will be used to install all the client dependencies, build and start the front-end on a port. This project uses **vite**
+- **React Front-End**: The package.json in the root directory will be used to install all the client dependencies, build and start the front-end on a port. This project uses **vite**, so the following command can be used:
     - command to execute
     ```bash
         cd to fleetsimulation/
@@ -53,12 +72,18 @@ Three terminals are needed to run the following respectively
         npm run dev
     ```
 
+<!-- <br/> -->
+<hr/>
+
 #### Upcomming Features
 - [ ] Full optimization for mobile responsiveness (Ideally this application should be used on either a tablet, laptop or desktop computer) 
 - [ ] Design layout and feature of vehicle maintenance history
 - [ ] Design layout and feature of vehicle/driver details
 - [ ] User authentication and personalization of user/company acquisitions
 - [ ] Other beneficial real-time features such as notifications, driver alerts, real-time positioning of vehicle/driver on a map and so on.
+
+<!-- <br/> -->
+<hr/>
 
 ## React + Vite
 
