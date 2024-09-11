@@ -3,20 +3,20 @@ This goal of this web application was to simulate my understanding of what a rea
 
 #### Screenshots of Web Application
 - Home Page
-![Home Page](screenshots/home.png "Fleet Manager Home Page")
+![Home Page](screenshots/home.PNG "Fleet Manager Home Page")
 - New Acquisition Page
-![New](screenshots/newacquisition.png "New Acquisition Page")
+![New](screenshots/newacquisition.PNG "New Acquisition Page")
 - Companies Acquried
-![Companies](screenshots/acquired.png "Companies Acquired Page")
+![Companies](screenshots/acquired.PNG "Companies Acquired Page")
 - Company Vehicles 
-![Vehicles](screenshots/company-vehicles.png "Company Vehicles Page")
+![Vehicles](screenshots/company-vehicles.PNG "Company Vehicles Page")
 - Vehicle Analytics 
-![Analytics](screenshots/analytics.png "Vehicle Analytics Page")
+![Analytics](screenshots/analytics.PNG "Vehicle Analytics Page")
 - About Page
-![About](screenshots/about.png "About Page")
+![About](screenshots/about.PNG "About Page")
 
 #### Application File Structure
-![File Structure](screenshots/filestructure.png "About Page")
+![File Structure](screenshots/filestructure.PNG "About Page")
 
 #### How To Run The Application Locally
 Three terminals are needed to run the following respectively
