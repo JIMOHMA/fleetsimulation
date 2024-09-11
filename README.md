@@ -42,7 +42,7 @@ Three terminals are needed to run the following respectively
         npm run dev
     ```
 
-#### Upcomming-Features
+#### Upcomming Features
 - [ ] Full optimization for mobile responsiveness (Ideally this application should be used on either a tablet, laptop or desktop computer) 
 - [ ] Design layout and feature of vehicle maintenance history
 - [ ] Design layout and feature of vehicle/driver details
