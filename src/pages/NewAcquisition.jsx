@@ -23,10 +23,10 @@ const NewAcquisition = () => {
       });
       
       const responseData = await response.json();
-      console.log('Response from server:', responseData)
+      // console.log('Response from server:', responseData)
 
       if (response.ok) {
-        alert('New Company generated registered');
+        alert('New Company generated and registered');
       } else {
         alert('Error submitting company info...Please try again!');
       }

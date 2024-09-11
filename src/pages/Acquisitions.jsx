@@ -23,7 +23,7 @@ function Acquisitions() {
   useEffect(() => {
     socket.emit("all-companies", {message: "Request for all companies in db"})
     socket.on("company_list", ({data}) => {
-      console.log(data);
+      // console.log(data);
       setTimeout(() => {
         setCompanies([...data])
         setLoadState(false)

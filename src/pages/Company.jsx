@@ -13,13 +13,13 @@ const Company = () => {
   const [ loadState, setLoadState ] = useState(true)
 
   const { companyId } = useParams();
-  console.log(companyId)
+  // console.log(companyId)
 
   useEffect(() => {
     socket.emit("company-data", {companyId: companyId})
     socket.on('vehicle_list', ({data}) => {
-      console.log(data[0].owner.name)
-      console.log(data[0].vehicles)
+      // console.log(data[0].owner.name)
+      // console.log(data[0].vehicles)
       setCompanyName(data[0].owner.name)
       setCompanyVehicles([...data[0].vehicles])
     })

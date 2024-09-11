@@ -14,8 +14,8 @@ function FuelGuage(props) {
     useEffect(() => {
       socket.emit("fuel_information", {vehicleId: props.vehicleId})
       socket.on("fuel_data", ({fuelData}) => {
-        console.log("Fuel data are below and vehicleId is", props.vehicleId)
-        console.log(fuelData[0].fuelLevel)
+        // console.log("Fuel data are below and vehicleId is", props.vehicleId)
+        // console.log(fuelData[0].fuelLevel)
         setFuelLevel(fuelData[0].fuelLevel)
       });
   

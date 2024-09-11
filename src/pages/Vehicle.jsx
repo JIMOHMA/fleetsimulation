@@ -11,8 +11,8 @@ import Maintenance from '../components/Maintenance';
 import Header from '../components/Header';
 
 import io from 'socket.io-client';
-// const socket = io.connect("http://localhost:3001") // update to CORS_ORIGIN=https://fleetsimulation.onrender.com
-const socket = io.connect("https://fleetdemo.onrender.com") // update to CORS_ORIGIN=https://fleetsimulation.onrender.com
+// const socket = io.connect("http://localhost:3001") 
+const socket = io.connect("https://fleetdemo.onrender.com")
 
 function Vehicle() {
 
@@ -24,8 +24,8 @@ function Vehicle() {
   useEffect(() => {
     socket.emit("description", {vehicleId: vehicleId})
     socket.on("description_data", (data) => {
-      console.log("Description 1 data is", data[0].vehicle.name)
-      console.log("Description 2 data is", data[1].company.name)
+      // console.log("Description 1 data is", data[0].vehicle.name)
+      // console.log("Description 2 data is", data[1].company.name)
       setVName(data[0].vehicle.name)
       setCName(data[1].company.name)
     })

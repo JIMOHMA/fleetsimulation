@@ -16,8 +16,8 @@ function TirePressure(props) {
     useEffect(() => {
         socket.emit('pressure_information', {vehicleId: props.vehicleId})
         socket.on('pressure_data', ({pressureData}) => {
-            console.log("Pressure data are below and vehicleId is", props.vehicleId)
-            console.log(pressureData[0].tirePressure)
+            // console.log("Pressure data are below and vehicleId is", props.vehicleId)
+            // console.log(pressureData[0].tirePressure)
             setTirePressures(pressureData[0].tirePressure)
         })
         return () => {

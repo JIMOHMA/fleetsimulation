@@ -12,8 +12,8 @@ const SpeedAreaChart = (props) => {
     useEffect(() => {
       socket.emit("speed_information", {vehicleId: props.vehicleId})
       socket.on("speed_data", ({vehicleData}) => {
-        console.log("Speed data are below and vehicleId is", props.vehicleId)
-        console.log(vehicleData)
+        // console.log("Speed data are below and vehicleId is", props.vehicleId)
+        // console.log(vehicleData)
         setSpeedData((prevData) => {
             return [...vehicleData]
         })

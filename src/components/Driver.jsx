@@ -13,8 +13,8 @@ const Driver = (props) => {
     useEffect(() => {
       socket.emit("driver_info", {vehicleId: props.vehicleId})
       socket.on("driver_data", ({driverData}) => {
-        console.log("diver data are below and vehicleId is", props.vehicleId)
-        console.log(driverData)
+        // console.log("diver data are below and vehicleId is", props.vehicleId)
+        // console.log(driverData)
         setDriverInfo(driverData)
       });
   
