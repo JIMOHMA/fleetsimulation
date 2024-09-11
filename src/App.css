@@ -38,7 +38,7 @@ body {
   /* height: 100vh; */
 
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
 }
 
 /* html, body {
@@ -65,9 +65,14 @@ li {
 
 
 header {
+  position: sticky;
+  top: 0;
+  
   display: flex;
   justify-content: space-around;
   background-color: white;
+  z-index: 10000000;
+
 
   padding: 2rem;
 }
