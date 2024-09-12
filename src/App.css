@@ -183,7 +183,7 @@ nav > a:hover {
   border-radius: 25px;
 }
 
-/* New Acquisition cut here */
+/* New Acquisition */
 .acquisition-container {
   display: grid;
   grid-template-columns: repeat(2, minmax(30rem, 40rem));
@@ -366,10 +366,10 @@ select {
   
   z-index: -1;
 }
-/* New Acquisition cut here */
+/* New Acquisition*/
 
 
-/* New Acquisition */
+/* Acquired Companies */
 .page-heading {
   text-align: center;
   font-size: 6rem;
@@ -392,7 +392,6 @@ select {
   padding: 2rem;
 }
 
-/* Acquisitions */
 .company-container {
   display: grid;
   grid-template-columns: repeat(3, 10rem);
@@ -464,7 +463,7 @@ select {
   color: var(--text-on-dark-color);
   border: 1px solid var(--text-on-dark-color);
 }
-/* Acquisitions */
+/* Acquired Companies */
 
 /* Company Vehicles */
 .vehicles-container {
@@ -1170,9 +1169,14 @@ footer #contact-us:hover {
   }
 
   .page-heading {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-top: 2rem;
     margin-bottom: 0;
+  }
+
+  .vehicles-container {
+    grid-template-columns: repeat(auto-fit, 35rem);
+    padding: 4rem 2rem;
   }
 
   .hero-content {
