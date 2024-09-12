@@ -700,10 +700,8 @@ select {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
 
-  /* padding: 1rem 2rem; */
   justify-self: stretch;
-  /* align-self: ; */
-  /* place-self: center; */
+  justify-content: center;
 
   background-color: #192e44;
   border-radius: 15px;
@@ -757,14 +755,14 @@ select {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
 
-  justify-self: center;
   align-self: center;
 
   display: grid;
   grid-template-columns: repeat(4, 8.75rem);
   grid-template-rows: repeat(6, minmax(auto, 5rem));
   row-gap: 1rem;
-  /* column-gap: 0.33rem; */
+
+  justify-content: center;
 
 
   background-color: #192e44;
@@ -893,6 +891,7 @@ select {
 
   justify-items: center;
   align-items: start;
+  justify-content: center;
 
   background-color: #192e44;
   border-radius: 15px;
@@ -1249,20 +1248,27 @@ footer #contact-us:hover {
     grid-row: 1 / 2;
   }
 
+  .speed-analytics h2 {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+
+    justify-self: center;
+  }
+
   .fuel-analytics {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
 
     grid-template-columns: repeat(2, 17.5rem);
     grid-template-rows: repeat(3, auto);
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
   }
 
   .pressure-analytics {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
 
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
   }
 
   .maintenance-info {
@@ -1277,6 +1283,5 @@ footer #contact-us:hover {
     grid-column: 1 / 2;
     grid-row: 5 / 6;
 
-    padding: 0 1rem;
   }
 }
