@@ -588,20 +588,23 @@ select {
 }
 
 .identification-info {
-  display: grid;
-  /* grid-template-columns: repeat(3, 50rem); */
+  /* display: grid;
   grid-template-columns: repeat(3, 35rem);
   grid-template-rows: 1fr;
 
-  /* padding: 0 4rem; */
-  /* align-items: end; */
-  place-content: center;
+  place-content: center; */
+  /* width: 100%; */
+  width: 105rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 4rem;
+  line-height: 1.1;
 
 }
 
 .identification-info h2 {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
 
   justify-self: center;
   align-self: end;
@@ -612,19 +615,15 @@ select {
 }
 
 .identification-info h3:nth-of-type(1) {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
 
-  justify-self: start;
+  text-align: start;
   align-self: end;
   color: #e2e2e277;
 }
 
 .identification-info h3:nth-of-type(2) {
-  grid-column: 3 / 4;
-  grid-row: 1 / 2;
 
-  justify-self: end;
+  text-align: end;
   align-self: end;
   color: #e2e2e277;
 }
@@ -1136,6 +1135,18 @@ footer #contact-us:hover {
     grid-row: 3 / 4;
   }
 
+  .identification-info {
+    padding: 3rem 1.5rem;
+  }
+
+  .identification-info h2 {
+    font-size: 3rem;
+  }
+
+  .identification-info h3 {
+    font-size: 1rem;
+  }
+
   footer .main-info {
     flex-direction: column;
     flex-grow: 0.8;
@@ -1183,7 +1194,7 @@ footer #contact-us:hover {
   }
 
   header h3 a {
-    font-size: 2.3rem;
+    font-size: 2rem;
   }
 
   header nav {
@@ -1213,5 +1224,50 @@ footer #contact-us:hover {
   .vehicle-card {
     column-gap: 0;
     padding: 2.5rem;
+  }
+
+  .identification-info {
+    width: 35rem;
+  }
+
+  .identification-info h2 {
+    font-size: 2rem;
+  }
+
+  .full-analytics {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 35rem); 
+    padding: 1rem;
+  }
+
+  .speed-analytics {
+    width: 100%;
+    height: 100%;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+  }
+
+  .fuel-analytics {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+
+  }
+
+  .pressure-analytics {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  .maintenance-info {
+    height: 100%;
+  
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+
+  }
+
+  .driver-vehicle-details {
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
   }
 }
