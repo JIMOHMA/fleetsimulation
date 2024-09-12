@@ -777,7 +777,7 @@ select {
   grid-row: 1 / 2;
 
   justify-self: center;
-  align-self: center;
+  align-self: end;
 
   font-size: 1.7rem;
   color: #ecececbe;
@@ -1251,11 +1251,16 @@ footer #contact-us:hover {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
 
+    grid-template-columns: repeat(2, 17.5rem);
+    grid-template-rows: repeat(3, auto);
+    padding: 0 1rem;
   }
 
   .pressure-analytics {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
+
+    padding: 0 1rem;
   }
 
   .maintenance-info {
@@ -1269,5 +1274,7 @@ footer #contact-us:hover {
   .driver-vehicle-details {
     grid-column: 1 / 2;
     grid-row: 5 / 6;
+
+    padding: 0 1rem;
   }
 }
