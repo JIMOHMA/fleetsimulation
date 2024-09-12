@@ -9,6 +9,7 @@ import TirePressure from '../components/TirePressure';
 import Driver from '../components/Driver';
 import Maintenance from '../components/Maintenance';
 import Header from '../components/Header';
+// const BACKEND_URL = process.env.REACT_APP_API_URL
 
 import io from 'socket.io-client';
 // const socket = io.connect("http://localhost:3001") 
@@ -36,8 +37,8 @@ function Vehicle() {
       <Header></Header>
       <section className='more-vehicle'>
         <div className="identification-info">
-          <h2>{cName}</h2>
           <h3>Vehicle Name: {vName}</h3>
+          <h2>{cName}</h2>
           <h3>Real-time Analytics</h3>
         </div>
         <div className='full-analytics'>
