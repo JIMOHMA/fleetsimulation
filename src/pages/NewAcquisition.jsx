@@ -52,8 +52,8 @@ const NewAcquisition = () => {
 
     // req to server to submit company information
     try {
-      // const response = await fetch('https://fleetdemo.onrender.com/new_acquisition', {
-      const response = await fetch('http://localhost:3001/new_acquisition', {
+      const response = await fetch('https://fleetdemo.onrender.com/new_acquisition', {
+      // const response = await fetch('http://localhost:3001/new_acquisition', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
