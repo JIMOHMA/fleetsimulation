@@ -1077,6 +1077,18 @@ footer #contact-us:hover {
   transition: all 0.15s ease-in;
 }
 
+@media only screen and (max-width: 1200px) {
+  footer {
+    flex-wrap: wrap;
+  }
+
+  footer .socials {
+    flex-basis: 70%;
+    font-size: 2rem;
+  }
+  
+}
+
 @media only screen and (max-width: 800px) {
   header nav {
     justify-content: end;
@@ -1136,48 +1148,8 @@ footer #contact-us:hover {
   }
 }
 
-@media only screen and (max-width: 1200px) {
-  footer {
-    flex-wrap: wrap;
-  }
-
-  footer .socials {
-    flex-basis: 70%;
-    font-size: 2rem;
-  }
-  
-}
-
 
 @media only screen and (max-width: 510px) {
-
-  .h2-heading {
-    font-size: 3.5rem;
-  }
-
-  header h3 a {
-    font-size: 2.3rem;
-  }
-
-  header nav {
-    justify-content: end;
-  }
-
-  header nav a {
-    padding: 0 0.5rem;
-    font-size: 1.6rem;
-  }
-
-  .page-heading {
-    font-size: 3.5rem;
-    margin-top: 2rem;
-    margin-bottom: 0;
-  }
-
-  .vehicles-container {
-    grid-template-columns: repeat(auto-fit, 35rem);
-    padding: 4rem 2rem;
-  }
 
   .hero-content {
     grid-template-rows: repeat(8, 5rem);
@@ -1204,5 +1176,42 @@ footer #contact-us:hover {
     padding: 1rem 2.5rem;
 
     grid-row: 7 / 8;
+  }
+
+    .h2-heading {
+    font-size: 3.5rem;
+  }
+
+  header h3 a {
+    font-size: 2.3rem;
+  }
+
+  header nav {
+    justify-content: end;
+  }
+
+  header nav a {
+    padding: 0 0.5rem;
+    font-size: 1.6rem;
+  }
+
+  .page-heading {
+    font-size: 3.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0;
+  }
+
+  .vehicles-container {
+    grid-template-columns: repeat(auto-fit, 35rem);
+  }
+
+  .company-container .company-name {
+    font-size: rem;
+
+  }
+
+  .vehicle-card {
+    column-gap: 0;
+    padding: 2.5rem;
   }
 }
