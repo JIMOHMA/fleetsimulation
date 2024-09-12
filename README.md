@@ -39,7 +39,7 @@ This goal of this web application was to simulate my understanding of what a rea
 <hr/>
 
 - **<u>About Page</u>**
-![About](screenshots/about.PNG "About Page")
+![About](screenshots/About.PNG "About Page")
 <!-- <br/> -->
 <hr/>
 
