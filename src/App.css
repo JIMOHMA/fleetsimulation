@@ -636,7 +636,7 @@ select {
 
   gap: 2rem;
   justify-content: center;
-  align-content: center;
+  align-content: start;
   
   padding: 4rem;
 }
@@ -1238,6 +1238,8 @@ footer #contact-us:hover {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 35rem); 
     padding: 1rem;
+
+    /* align-self: start; */
   }
 
   .speed-analytics {
