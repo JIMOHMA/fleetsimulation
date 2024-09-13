@@ -1,5 +1,5 @@
-# Element Fleet Simulation
-This goal of this web application was to simulate my understanding of what a real-time analytics for a fleet of vehicles would entail. More features can and will be added in the coming future.
+# Fleet Simulation (MVP)
+This goal of this web application was to simulate my understanding of what a real-time analytics for a fleet of vehicles would entail. **Given that this is an MVP, more features will be added and application will be re-designed for a better user experience.**
 
 ### Tech Stack (MERN)
 <p align="center">
