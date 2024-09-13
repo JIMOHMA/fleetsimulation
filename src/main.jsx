@@ -4,10 +4,9 @@ import { BrowserRouter, HashRouter } from "react-router-dom";
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  // <StrictMode>
-  //   <App />
-  // </StrictMode>,
-  <HashRouter>
-    <App />
-  </HashRouter>
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
 )
