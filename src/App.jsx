@@ -18,12 +18,12 @@ function App() {
       <Routes>
         <Route>
           <Route index element={<Home />} />
-          <Route path='home' element={<Home />} />
-          <Route path="acquisitions" element={<Acquisitions />} />
-          <Route path="new" element={<NewAcquisition />} />
-          <Route path="about" element={<About />} />
-          <Route path="vehicle/:vehicleId" element={<Vehicle />} />
-          <Route path="company/:companyId" element={<Company />} />
+          <Route path='/home' element={<Home />} />
+          <Route path="/acquisitions" element={<Acquisitions />} />
+          <Route path="/new" element={<NewAcquisition />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/vehicle/:vehicleId" element={<Vehicle />} />
+          <Route path="/company/:companyId" element={<Company />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
