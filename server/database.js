@@ -21,12 +21,13 @@ const client = new MongoClient(connectionString);
 async function autoAcquisition() {
 
     const companyId = uuidv4();
-    // a new company has between 1 and 7
+    // a new company has between 1 and 7 vehicles inclusive
     const vehicleNum = Math.ceil(Math.random()*7); 
+    const companyNameGenerated = generateRandomCompanyName()
     const newCompany = new Company({
         _id: companyId,
         companyId: companyId,
-        name: generateRandomCompanyName(),
+        name: companyNameGenerated,
         numberOfVehicles: vehicleNum,
         location: "Mississauga Ontario, Canada", // default location
         vehicles: await createVehicleInformation(vehicleNum, companyId)
@@ -47,6 +48,7 @@ async function autoAcquisition() {
     }
 
     initializeFleetHistory(companyId)
+    return companyNameGenerated
 }
 
 async function newAcquisitionByUser(companyName, numOfVehicle) {
