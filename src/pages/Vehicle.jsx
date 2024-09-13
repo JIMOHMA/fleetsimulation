@@ -9,16 +9,14 @@ import TirePressure from '../components/TirePressure';
 import Driver from '../components/Driver';
 import Maintenance from '../components/Maintenance';
 import Header from '../components/Header';
-// const BACKEND_URL = process.env.REACT_APP_API_URL
-
 import io from 'socket.io-client';
-// const socket = io.connect("http://localhost:3001") 
-const socket = io.connect("https://fleetdemo.onrender.com")
+
+const SERVER_API = import.meta.env.VITE_API_URL
+const socket = io.connect(SERVER_API) 
 
 function Vehicle() {
 
   const { vehicleId } = useParams();
-
   const [ vName, setVName ] = useState("")
   const [ cName, setCName ] = useState("")
 

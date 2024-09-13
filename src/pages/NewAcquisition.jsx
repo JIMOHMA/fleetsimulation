@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/Header'
 import { useState } from 'react'
+const SERVER_API = import.meta.env.VITE_API_URL
 
 const NewAcquisition = () => {
 
@@ -8,13 +9,10 @@ const NewAcquisition = () => {
   const [vehicleNums, setVehicleNums] = useState('')
   const [isChecked, setIsChecked] = useState(false)
 
-  const BACKEND_URL = "https://fleetdemo.onrender.com"
-
   const autoGenerateCompany = async () => {
     
     try {
-      // const response = await fetch('http://localhost:3001/autogenerate', {
-      const response = await fetch("https://fleetdemo.onrender.com/autogenerate", {
+      const response = await fetch(`${SERVER_API}/autogenerate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,7 +24,7 @@ const NewAcquisition = () => {
       // console.log('Response from server:', responseData)
 
       if (response.ok) {
-        alert('New Company generated and registered');
+        alert(responseData.data);
       } else {
         alert('Error submitting company info...Please try again!');
       }
@@ -37,9 +35,9 @@ const NewAcquisition = () => {
 
   // handle the change on the checkbox
   const handleCheckbox = (e) => {
-    console.log(e.target.value)
+    // console.log(e.target.value)
     setIsChecked(e.target.checked)
-    console.log("isChecked state is now:", isChecked)
+    // console.log("isChecked state is now:", isChecked)
   }
 
   const submitCompany = async (myEvent) => {
@@ -52,8 +50,7 @@ const NewAcquisition = () => {
 
     // req to server to submit company information
     try {
-      const response = await fetch('https://fleetdemo.onrender.com/new_acquisition', {
-      // const response = await fetch('http://localhost:3001/new_acquisition', {
+      const response = await fetch(`${SERVER_API}/new_acquisition`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,12 +59,12 @@ const NewAcquisition = () => {
       });
 
       const responseData = await response.json();
-      console.log('Response from server:', responseData)
+      // console.log('Response from server:', responseData)
       setCompanyName('')
       setVehicleNums('')
 
       if (response.ok) {
-        alert('New Company successfully registered');
+        alert(responseData.data);
       } else {
         alert('Error submitting company info...Please try again!');
       }

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-
 import io from 'socket.io-client';
 import Header from '../components/Header';
-// const socket = io.connect("http://localhost:3001")
-const socket = io.connect("https://fleetdemo.onrender.com")
+
+
+const SERVER_API = import.meta.env.VITE_API_URL
+const socket = io.connect(SERVER_API)
 
 const Company = () => {
 
