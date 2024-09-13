@@ -1,11 +1,8 @@
 import React from 'react'
 import { useEffect, useState  } from 'react';
-
 import io from 'socket.io-client';
-import Vehicle from '../pages/Vehicle';
-// const socket = io.connect("http://localhost:3001")
-const socket = io.connect("https://fleetdemo.onrender.com")
-
+const SERVER_API = import.meta.env.VITE_API_URL
+const socket = io.connect(SERVER_API)
 
 // TODO: Tires pressures are all the same for all 4 tires
 // TODO: Update the simulator logic to reflect this and update this component

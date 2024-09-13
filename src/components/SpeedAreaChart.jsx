@@ -1,10 +1,10 @@
 import React from 'react';
 import { useEffect, useState  } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-
 import io from 'socket.io-client';
-// const socket = io.connect("http://localhost:3001")
-const socket = io.connect("https://fleetdemo.onrender.com")
+
+const SERVER_API = import.meta.env.VITE_API_URL
+const socket = io.connect(SERVER_API)
 
 const SpeedAreaChart = (props) => {
     const [ speedData, setSpeedData ] = useState([])
@@ -31,8 +31,8 @@ const SpeedAreaChart = (props) => {
         // of the parent
         <div className='speed-analytics shadow-effect'>
             <h2>Vehicle Speed (km/hr)</h2>
-            <p className='time-frame'>Speed Time-frame: 5 minutes</p>
-            <p className='update-time'>Graph Update Time: 30 secs</p>
+            <p className='time-frame'>Time-frame: 5 minutes</p>
+            <p className='update-time'>Refresh Time: 30 secs</p>
             <ResponsiveContainer className='chart-area' width="100%" height="100%">
                 <AreaChart
                 // width={400}

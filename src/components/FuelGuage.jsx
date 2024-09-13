@@ -1,11 +1,10 @@
 import React from 'react'
 import { useEffect, useState  } from 'react';
 import GaugeChart from 'react-gauge-chart';
-
-
 import io from 'socket.io-client';
-// const socket = io.connect("http://localhost:3001")
-const socket = io.connect("https://fleetdemo.onrender.com")
+
+const SERVER_API = import.meta.env.VITE_API_URL
+const socket = io.connect(SERVER_API)
 
 function FuelGuage(props) {
 
