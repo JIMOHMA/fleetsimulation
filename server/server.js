@@ -126,6 +126,7 @@ io.on('connection', (clientSocket) => {
         console.log(parsedData)
         clientSocket.emit('speed_data', {vehicleData: parsedData})
 
+        // TODO: Change this back to 30000
         // wait 30 seconds before loading the next feed of data
         setInterval(async() => {
             speedResult = await sensorCollection.find({vehicleId: vehicleId}).project(projection).sort("date", -1).limit(10).toArray()
@@ -136,7 +137,7 @@ io.on('connection', (clientSocket) => {
             console.log("Second Parsed data:")
             console.log(parsedData)
             clientSocket.emit('speed_data', {vehicleData: parsedData})
-        }, 30000)
+        }, 2000)
 
     })
 
