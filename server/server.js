@@ -137,7 +137,7 @@ io.on('connection', (clientSocket) => {
             console.log("Second Parsed data:")
             console.log(parsedData)
             clientSocket.emit('speed_data', {vehicleData: parsedData})
-        }, 2000)
+        }, 30000)
 
     })
 
